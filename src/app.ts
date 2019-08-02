@@ -1,7 +1,5 @@
-class School {
+export default class School {
   
-  // Your code here
+  //Your code goes here
 
 }
-
-export default School
