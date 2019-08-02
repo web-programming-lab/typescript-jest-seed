@@ -1,51 +1,26 @@
-# typescript-jest-seed
+# Two Fer
 
-A Node/TypeScript seed project.
+`Two-fer` or `2-fer` is short for two for one. One for you and one for me.
 
-This is a very basic project that allows you to get up and running easily with Node and TypeScript.
+Given a name, return a string with the message:
 
------
-
-### Features
-
-* TypeScript 3
-* Watch Mode
-* Minimal dependencies (no external build system or npm globals required)
-* Unit Tests (Jest)
-* Debug Configs for VS Code
-* Works on OSX and Windows
-
------
-
-### Quick Start
-
-# install the dependencies
-npm install
-
-# start development mode
-npm run dev
+```text
+One for X, one for me.
 ```
 
-#### Dev Configuration
+Where X is the given name.
 
-When running in dev mode, the application will automatically execute each time you make a change to `app.ts` or any file that `app.ts` depends on (recursively).
+However, if the name is missing, return the string:
 
-Modify the auto-execution delay setting in `package.json` (defaults to 1500ms) to meet your needs. Ideally, you'll choose a number that will cause your application to only restart once, each time you make typical development changes. The optimal delay time will vary depending on the size of your project and your development machine.
-
------
-
-### Other NPM tasks
-
-After running `npm install` once, you can:
-
-#### Build the app
-
-```sh
-npm run build
+```text
+One for you, one for me.
 ```
 
-#### Run the app once
+Here are some examples:
 
-```sh
-npm start
-```
+|Name    |String to return
+|:-------|:------------------
+|Alice   |One for Alice, one for me.
+|Bob     |One for Bob, one for me.
+|        |One for you, one for me.
+|Zaphod  |One for Zaphod, one for me.

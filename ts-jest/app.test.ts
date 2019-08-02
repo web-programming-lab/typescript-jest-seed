@@ -1,9 +1,16 @@
-import { sum } from '../src/app';
+import TwoFer from '../src/app'
 
-test('basic', () => {
-  expect(sum()).toBe(0);
+test('no name given', () => {
+  const expected = 'One for you, one for me.'
+  expect(TwoFer.twoFer()).toEqual(expected)
 });
 
-test('basic again', () => {
-  expect(sum(1, 2)).toBe(3);
+test('a name given', () => {
+  const expected = 'One for Alice, one for me.'
+  expect(TwoFer.twoFer('Alice')).toEqual(expected)
+});
+
+test('another name given', () => {
+  const expected = 'One for Bob, one for me.'
+  expect(TwoFer.twoFer('Bob')).toEqual(expected)
 });
