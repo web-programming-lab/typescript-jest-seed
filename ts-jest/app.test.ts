@@ -1,127 +1,81 @@
-import Charles from '../src/app'
+import School from '../src/app'
 
-describe('Charles', () => {
+describe('School', () => {
+  let school: School
 
-  const charles = new Charles()
-
-  it('stating something', () => {
-    const result = charles.hey('Tom-ay-to, tom-aaaah-to.')
-    expect(result).toEqual('Whatever.')
+  beforeEach(() => {
+    school = new School()
   })
 
-  xit('shouting', () => {
-    const result = charles.hey('WATCH OUT!')
-    expect(result).toEqual('Whoa, chill out!')
+  it('a new school has an empty roster', () => {
+    expect(school.classlist().size === 0).toEqual(true)
   })
 
-  xit('shouting gibberish', () => {
-    const result = charles.hey('FCECDFCAAB')
-    expect(result).toEqual('Whoa, chill out!')
+  xit('adding a student adds them to the roster for the given grade', () => {
+    school.addStudent('Aimee', 2)
+
+    const expectedDb = new Map(Object.entries({ 2 : [ 'Aimee' ] }))
+    expect(school.classlist()).toEqual(expectedDb)
   })
 
-  xit('asking a question', () => {
-    const result = charles.hey('Does this cryogenic chamber make me look fat?')
-    expect(result).toEqual('Sure.')
+  xit('adding more students to the same grade adds them to the roster', () => {
+    school.addStudent('Blair', 2)
+    school.addStudent('James', 2)
+    school.addStudent('Paul', 2)
+
+    const expectedDb = new Map(Object.entries({ 2 : [ 'Blair', 'James', 'Paul' ] }))
+    expect(school.classlist()).toEqual(expectedDb)
   })
 
-  xit('asking a numeric question', () => {
-    const result = charles.hey('You are, what, like 15?')
-    expect(result).toEqual('Sure.')
+  xit('adding students to different grades adds them to the roster', () => {
+    school.addStudent('Chelsea', 3)
+    school.addStudent('Logan', 7)
+
+    const expectedDb = new Map(Object.entries({ 3 : [ 'Chelsea' ], 7 : [ 'Logan'] }))
+    expect(school.classlist()).toEqual(expectedDb)
   })
 
-  xit('asking gibberish', () => {
-    const result = charles.hey('fffbbcbeab?')
-    expect(result).toEqual('Sure.')
+  xit('grade returns the students in that grade in alphabetical order', () => {
+    school.addStudent('Franklin', 5)
+    school.addStudent('Bradley', 5)
+    school.addStudent('Jeff', 1)
+
+    const expectedStudents = [ 'Bradley', 'Franklin' ]
+    expect(school.studentsInGrade(5)).toEqual(expectedStudents)
   })
 
-  xit('talking forcefully', () => {
-    const result = charles.hey("Let's go make out behind the gym!")
-    expect(result).toEqual('Whatever.')
+  xit('grade returns an empty array if there are no students in that grade', () => {
+    expect(school.studentsInGrade(1)).toEqual([])
   })
 
-  xit('using acronyms in regular speech', () => {
-    const result = charles.hey("It's OK if you don't want to go to the DMV.")
-    expect(result).toEqual('Whatever.')
+  xit('the students names in each grade in the roster are sorted', () => {
+    school.addStudent('Jennifer', 4)
+    school.addStudent('Kareem', 6)
+    school.addStudent('Christopher', 4)
+    school.addStudent('Kyle', 3)
+
+    const expectedSortedStudents = new Map(Object.entries({
+      3 : ['Kyle'],
+      4 : ['Christopher', 'Jennifer'],
+      6 : ['Kareem']
+    }))
+    expect(school.classlist()).toEqual(expectedSortedStudents)
   })
 
-  xit('forceful question', () => {
-    const result = charles.hey('WHAT THE HELL WERE YOU THINKING?')
-    expect(result).toEqual('Calm down, I know what I\'m doing!')
+  xit('roster cannot be modified outside of module', () => {
+    school.addStudent('Aimee', 2)
+    const roster = school.classlist()
+    const result = roster.get('2') || []
+    result.push('Oops.')
+    const expectedDb = new Map(Object.entries({ 2 : [ 'Aimee' ] }))
+    expect(school.classlist()).toEqual(expectedDb)
   })
 
-  xit('shouting numbers', () => {
-    const result = charles.hey('1, 2, 3 GO!')
-    expect(result).toEqual('Whoa, chill out!')
-  })
-
-  xit('no letters', () => {
-    const result = charles.hey('1, 2, 3')
-    expect(result).toEqual('Whatever.')
-  })
-
-  xit('question with no letters', () => {
-    const result = charles.hey('4?')
-    expect(result).toEqual('Sure.')
-  })
-
-  xit('shouting with special characters', () => {
-    const result = charles.hey('ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!')
-    expect(result).toEqual('Whoa, chill out!')
-  })
-
-  xit('shouting with no exclamation mark', () => {
-    const result = charles.hey('I HATE THE DMV')
-    expect(result).toEqual('Whoa, chill out!')
-  })
-
-  xit('statement containing question mark', () => {
-    const result = charles.hey('Ending with ? means a question.')
-    expect(result).toEqual('Whatever.')
-  })
-
-  xit('prattling on', () => {
-    const result = charles.hey('Wait! Hang on.  Are you going to be OK?')
-    expect(result).toEqual('Sure.')
-  })
-
-  xit('silence', () => {
-    const result = charles.hey('')
-    expect(result).toEqual('Fine. Be that way!')
-  })
-
-  xit('prolonged silence', () => {
-    const result = charles.hey('   ')
-    expect(result).toEqual('Fine. Be that way!')
-  })
-
-  xit('alternate silence', () => {
-    const result = charles.hey('\t\t\t\t\t\t\t\t\t\t')
-    expect(result).toEqual('Fine. Be that way!')
-  })
-
-  xit('multiple line question', () => {
-    const result = charles.hey('\nDoes this cryogenic chamber make me look fat?\nNo.')
-    expect(result).toEqual('Whatever.')
-  })
-
-  xit('starting with whitespace', () => {
-    const result = charles.hey('         hmmmmmmm...')
-    expect(result).toEqual('Whatever.')
-  })
-
-  xit('ending with whitespace', () => {
-    const result = charles.hey('Okay if like my  spacebar  quite a bit?   ')
-    expect(result).toEqual('Sure.')
-  })
-
-  xit('other whitespace', () => {
-    const result = charles.hey('\n\r \t')
-    expect(result).toEqual('Fine. Be that way!')
-  })
-
-  xit('non-question ending with whitespace', () => {
-    const result = charles.hey('This is a statement ending with whitespace      ')
-    expect(result).toEqual('Whatever.')
+  xit('roster cannot be modified outside of module using studentsInGrade()', () => {
+    school.addStudent('Aimee', 2)
+    school.studentsInGrade(2).push('Oops.')
+    const expectedDb = new Map(Object.entries({ 2 : [ 'Aimee' ] }))
+    expect(school.classlist()).toEqual(expectedDb)
   })
 
 })
