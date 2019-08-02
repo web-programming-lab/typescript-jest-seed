@@ -1,7 +1,7 @@
-class TwoFer {
+class Charles {
   
   // Your code here
 
 }
 
-export default TwoFer
+export default Charles

@@ -1,26 +1,12 @@
-# Two Fer
+# Charles
 
-`Two-fer` or `2-fer` is short for two for one. One for you and one for me.
+Charles is a lackadaisical teenager. In conversation, his responses are very limited.
 
-Given a name, return a string with the message:
+Charles answers 'Sure.' if you ask him a question.
 
-```text
-One for X, one for me.
-```
+He answers 'Whoa, chill out!' if you yell at him.
 
-Where X is the given name.
+He says 'Fine. Be that way!' if you address him without actually saying
+anything.
 
-However, if the name is missing, return the string:
-
-```text
-One for you, one for me.
-```
-
-Here are some examples:
-
-|Name    |String to return
-|:-------|:------------------
-|Alice   |One for Alice, one for me.
-|Bob     |One for Bob, one for me.
-|        |One for you, one for me.
-|Zaphod  |One for Zaphod, one for me.
+He answers 'Whatever.' to anything else.
