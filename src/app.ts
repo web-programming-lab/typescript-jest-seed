@@ -1,6 +1,5 @@
 class App {
 
-  // missing interface. Read exercise below:
   createUser(name: string): User {
     return {
       id: 123,
