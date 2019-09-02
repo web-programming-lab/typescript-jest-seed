@@ -1,10 +1,20 @@
 class App {
-  logNumber(a: number) {
-    console.log(a);
+
+  // missing interface. Read exercise below:
+  createUser(name: string): User {
+    return {
+      id: 123,
+      name: name,
+      settings: {
+        settingA: 123,
+        settingB: 456,
+      }
+    }
   }
 }
 
-let app = new App();
-app.logNumber(1);
+let user = new App().createUser('Andreas');
+console.log(user);
+
 
 
