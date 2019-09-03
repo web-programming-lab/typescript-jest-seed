@@ -44,11 +44,6 @@ describe('Charles', () => {
     expect(result).toEqual('Whatever.')
   })
 
-  xit('forceful question', () => {
-    const result = charles.hey('WHAT THE HELL WERE YOU THINKING?')
-    expect(result).toEqual('Calm down, I know what I\'m doing!')
-  })
-
   xit('shouting numbers', () => {
     const result = charles.hey('1, 2, 3 GO!')
     expect(result).toEqual('Whoa, chill out!')
