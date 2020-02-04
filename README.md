@@ -20,9 +20,12 @@ This is a very basic project that allows you to get up and running easily with N
 ### Quick Start
 
 # install the dependencies
+```
 npm install
+```
 
 # start development mode
+```
 npm run dev
 ```
 
