@@ -17,18 +17,17 @@
     "tsc-watch": "tsc -w",
     "lint": "tsc --noEmit && eslint \"*/**/*.{js,ts}\" --quiet --fix"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^24.9.1",
-    "@typescript-eslint/eslint-plugin": "^1.12.0",
-    "@typescript-eslint/parser": "^1.12.0",
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.9.0",
+    "@typescript-eslint/parser": "^5.9.0",
     "concurrently": "^3.1.0",
-    "eslint": "^5.0.0",
-    "jest": "^24.9.0",
-    "nodemon": "^1.19.4",
+    "eslint": "^8.6.0",
+    "jest": "^27.4.7",
+    "nodemon": "^2.0.15",
     "rimraf": "^2.7.1",
-    "ts-jest": "^24.3.0",
-    "typescript": "^3.9.7",
-    "wait-on": "^1.5.3"
+    "ts-jest": "^27.1.2",
+    "typescript": "^4.5.0",
+    "wait-on": "^6.0.0"
   }
 }
