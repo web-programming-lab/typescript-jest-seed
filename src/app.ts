@@ -1,7 +1,5 @@
-class Charles {
+export class Charles {
   
   // Your code here
 
 }
-
-export default Charles

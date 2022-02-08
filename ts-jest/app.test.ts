@@ -1,4 +1,4 @@
-import Charles from '../src/app'
+import { Charles } from '../src/app'
 
 describe('Charles', () => {
 
