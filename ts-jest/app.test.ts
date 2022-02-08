@@ -1,4 +1,4 @@
-import School from '../src/app'
+import { School } from '../src/app'
 
 describe('School', () => {
   let school: School

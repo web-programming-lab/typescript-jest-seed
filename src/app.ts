@@ -1,4 +1,4 @@
-export default class School {
+export class School {
   
   //Your code goes here
 
