@@ -1,4 +1,4 @@
-import TwoFer from '../src/app'
+import { TwoFer } from '../src/app'
 
 test('no name given', () => {
   const expected = 'One for you, one for me.'

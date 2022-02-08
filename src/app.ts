@@ -1,7 +1,5 @@
-class TwoFer {
+export class TwoFer {
   
   // Your code here
 
 }
-
-export default TwoFer
